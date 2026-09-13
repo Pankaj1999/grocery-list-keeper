@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grocery List Keeper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="container">
+    <header class="hero">
+        <div>
+            <p class="eyebrow">Simple shopping management</p>
+            <h1>🛒 Grocery List Keeper</h1>
+            <p class="subtitle">Keep track of what you need and what you have bought.</p>
+        </div>
+        <small>Version: {{ app_version }}<br>Environment: {{ app_environment }}</small>
+    </header>
+
+    <section class="card">
+        <form id="item-form">
+            <label>Grocery item <input name="name" maxlength="100" placeholder="e.g. Apples" required></label>
+            <label>Quantity <input name="quantity" maxlength="50" placeholder="e.g. 2" required></label>
+            <button>Add item</button>
+        </form>
+    </section>
+
+    <div class="list-header"><div><h2>Your groceries</h2><p id="remaining-count">0 items remaining</p></div></div>
+    <section id="grocery-list"></section>
+    <p id="message" class="message" role="status"></p>
+</main>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
